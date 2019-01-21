@@ -1,7 +1,29 @@
 <h1>Burger</h1>
 
+<h2>Burgers That Haven't Been Eaten</h2>
+
 <ul>
     {{#each burgers}}
+    {{#unless devoured}}
         <li>{{burger_name}}</li>
+    {{/unless}}
     {{/each}}
 </ul>
+
+<h2>Burgers That Have Been Eaten</h2>
+
+<ul>
+    {{#each burgers}}
+        {{#if devoured}}
+            <li>{{burger_name}}</li>
+        {{/if}}
+    {{/each}}
+</ul>
+
+<h2>Add a Burger?</h2>
+<form>
+    <div class="form-group">
+        <label>Burger Type</label>
+        <input type="text" id="insert" name="burgName">
+    </div>
+</form>

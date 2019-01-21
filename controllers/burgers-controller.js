@@ -13,6 +13,14 @@ module.exports = function(app) {
     });
     
     // create new burger - app.post
+    app.post("/api/burgers", function(req, res) {
+        burger.insertOne(req.body.burger_name, req.body.devoured)
+        .then(function(data){
+            res.json({id: data.insertId});
+        }).catch(function(err){
+            console.log(err);
+        });
+    });
 
 
     // update devour - app.put

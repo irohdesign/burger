@@ -1,6 +1,6 @@
 const ORM = require("../config/orm.js");
 
-const burgerObj = new ORM("burgers");
+const burger = new ORM("burgers");
 
-module.exports = burgerObj;
+module.exports = burger;
 

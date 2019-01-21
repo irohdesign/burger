@@ -25,9 +25,19 @@ function ORM(table) {
                 resolve(data);
             });
         })
-    }
+    },
 
     // updateOne
+    this.updateOne = function(devoured) {
+        const sql = `UPDATE ?? SET devoured = ? WHERE id = ?`;
+
+        return new Promise(function(resolve, reject) {
+            connection.query(sql, [table, devoured, id], function(err,data) {
+                if (err) reject(err);
+                resolve(data);
+            });
+        });
+    }
 }
 
 module.exports = ORM;

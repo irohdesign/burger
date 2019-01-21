@@ -5,7 +5,11 @@
 <ul>
     {{#each burgers}}
     {{#unless devoured}}
-        <li>{{burger_name}}</li>
+        <li>
+            <p>{{burger_name}}</p>
+            <button>Eat me?</button>
+        </li>
+
     {{/unless}}
     {{/each}}
 </ul>
@@ -15,7 +19,9 @@
 <ul>
     {{#each burgers}}
         {{#if devoured}}
-            <li>{{burger_name}}</li>
+            <li>
+                <p>{{burger_name}}</p>
+            </li>
         {{/if}}
     {{/each}}
 </ul>
@@ -26,4 +32,6 @@
         <label>Burger Type</label>
         <input type="text" id="insert" name="burgName">
     </div>
+
+    <button type="submit">Add Burger</button>
 </form>

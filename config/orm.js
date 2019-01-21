@@ -5,7 +5,7 @@ function ORM(table) {
 
     // select all
     this.selectAll = function() {
-        const sql = `SELECT * FROM ?`;
+        const sql = `SELECT * FROM ??`;
 
         return new Promise(function(resolve, reject) {
             connection.query(sql, table, function(err, data) {

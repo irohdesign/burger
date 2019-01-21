@@ -7,9 +7,11 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         burger.selectAll()
         .then(function(data) {
-            console.log(data);
-        })
-    })
+            res.render("index", {burgers: data});
+        }).catch(function(err) {
+            console.log(err);
+        });
+    });
     
     // create new burger - app.post
 

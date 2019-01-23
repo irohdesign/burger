@@ -3,9 +3,12 @@ $(function() {
     $("#new-burger").on("submit", function(event) {
         event.preventDefault();
 
+        var added = $("#insert").val().trim();
         var newBurger = {
-            burger_name: $("#insert").val().trim()
+            burger_name: added
         };
+
+        console.log(newBurger);
 
         $.ajax("/api/burgers", {
             type: "POST",
@@ -19,7 +22,7 @@ $(function() {
     // eat a burger
     $(".update-eaten").on("click", function(event) {
         var id= $(this).data("id");
-        var newEaten = $(this).data("newEaten");
+        var newEaten = $(this).data("#newEaten");
 
         var newStatus = {
             devoured: newEaten

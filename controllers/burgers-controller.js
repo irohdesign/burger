@@ -1,5 +1,4 @@
 const burger = require("../models/burger.js");
-const connection = require("../config/connection.js");
 
 // routes
 module.exports = function(app) {
@@ -19,7 +18,7 @@ module.exports = function(app) {
     });
 
     // update devour - app.put
-    app.put("api/burgers/id", function(req, res) {
+    app.put("api/burgers/:id", function(req, res) {
 
         burger.updateOne(req.id)
         .then(function(data) {

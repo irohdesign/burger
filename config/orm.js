@@ -28,11 +28,11 @@ function ORM(table) {
     },
 
     // updateOne
-    this.updateOne = function() {
+    this.updateOne = function(req, res) {
         const sql = `UPDATE burgers SET devoured = true WHERE id = ?`;
 
         return new Promise(function(resolve, reject) {
-            connection.query(sql, id, function(err,data) {
+            connection.query(sql, res.id, function(err,data) {
                 if (err) reject(err);
                 resolve(data);
             });

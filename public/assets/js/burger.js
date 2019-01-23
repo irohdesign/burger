@@ -22,17 +22,12 @@ $(function() {
     // eat a burger
     $(".update-eaten").on("click", function(event) {
         var id= $(this).data("id");
-        var newEaten = $(this).data("#newEaten");
-
-        var newStatus = {
-            devoured: newEaten
-        };
 
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: newStatus
+            data: id
         }).then(function() {
-            console.log("burger got " + newStatus);
+            console.log("burger was eaten");
             location.reload();
         }
         );

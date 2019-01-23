@@ -16,13 +16,13 @@ function ORM(table) {
     },
 
     // create burger
-    this.create = function() {
+    this.create = function(req, res) {
         const sql = `INSERT INTO ?? (burger_name) VALUES ?`;
 
         return new Promise(function(resolve, reject) {
-            connection.query(sql, [table, "burger_name"], function(err, data) {
+            connection.query(sql, [table, ], function(err, data) {
                 if(err) reject(err);
-                console.log("added a burger?");
+                resolve(data);
             });
         })
     },

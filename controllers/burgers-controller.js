@@ -1,4 +1,5 @@
 const burger = require("../models/burger.js");
+const connection = require("../config/connection.js");
 
 // routes
 module.exports = function(app) {
@@ -7,6 +8,7 @@ module.exports = function(app) {
         burger.selectAll()
         .then(function(data) {
             res.render("index", {burgers: data});
+            console.log(data);
         }).catch(function(err) {
             console.log(err);
         });
@@ -14,20 +16,12 @@ module.exports = function(app) {
     
     // create new burger - app.post
     app.post("/api/burgers", function(req, res) {
-        
-        console.log(req.body.burger_name)
-        // .then(function(data){
-        //     console.log(data);
-        // }).catch(function(err){
-        //     console.log(err);
-        // });
     });
 
     // update devour - app.put
-    app.put("api/burgers/:id", function(req, res) {
-        var devoured = false;
+    app.put("api/burgers/id", function(req, res) {
 
-        burger.updateOne(devoured, req.params.id)
+        burger.updateOne(req.id)
         .then(function(data) {
             if(data.changedRows == 0) {
                 return res.status(404).end();

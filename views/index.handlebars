@@ -7,7 +7,7 @@
     {{#unless devoured}}
         <li>
             <p>{{burger_name}}</p>
-            <button>Eat me?</button>
+            <button class="update-eaten" data-id="{{id}}" data-isEaten="{{id}}">Eat me?</button>
         </li>
 
     {{/unless}}
@@ -27,7 +27,7 @@
 </ul>
 
 <h2>Add a Burger?</h2>
-<form>
+<form id="new-burger">
     <div class="form-group">
         <label>Burger Type</label>
         <input type="text" id="insert" name="burgName">

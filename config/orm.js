@@ -16,23 +16,23 @@ function ORM(table) {
     },
 
     // insertOne
-    this.insertOne = function(burger_name) {
-        const sql = `INSERT INTO ?? (burger_name) VALUES ?`;
+    this.insertOne = function() {
+        const sql = `INSERT INTO burgers (burger_name) VALUES ?`;
 
         return new Promise(function(resolve, reject) {
-            connection.query(sql, [table, burger_name], function(err, data) {
+            connection.query(sql, burger_name, function(err, data) {
                 if(err) reject(err);
-                resolve(data);
+                console.log(data);
             });
         })
     },
 
     // updateOne
-    this.updateOne = function(devoured) {
-        const sql = `UPDATE ?? SET devoured = ? WHERE id = ?`;
+    this.updateOne = function() {
+        const sql = `UPDATE burgers SET devoured = true WHERE id = ?`;
 
         return new Promise(function(resolve, reject) {
-            connection.query(sql, [table, devoured, id], function(err,data) {
+            connection.query(sql, id, function(err,data) {
                 if (err) reject(err);
                 resolve(data);
             });

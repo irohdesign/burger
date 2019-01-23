@@ -26,4 +26,3 @@ require("./controllers/burgers-controller.js")(app);
 app.listen(PORT, function() {
     console.log("server listening on http://localhost: at " + PORT);
 })
-

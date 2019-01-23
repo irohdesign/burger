@@ -15,14 +15,14 @@ function ORM(table) {
         })
     },
 
-    // insertOne
-    this.insertOne = function() {
-        const sql = `INSERT INTO burgers (burger_name) VALUES ?`;
+    // create burger
+    this.create = function() {
+        const sql = `INSERT INTO ?? (burger_name) VALUES ?`;
 
         return new Promise(function(resolve, reject) {
-            connection.query(sql, burger_name, function(err, data) {
+            connection.query(sql, [table, "burger_name"], function(err, data) {
                 if(err) reject(err);
-                console.log(data);
+                console.log("added a burger?");
             });
         })
     },
